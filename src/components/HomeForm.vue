@@ -6,72 +6,55 @@ export default {
   },
   data() {
     return {
-      formOne: true,
-      formTwo: false,
-      formThree: false,
-      responseData: [],
-      response: '',
+      prompt: '',
+      engine: '',
     }
   },
   methods: {
-    handleFormOne() {
-      this.responseData.push(this.response)
-      this.response = ""
-      this.formOne = false
-      this.formTwo = true
-    },
-    handleFormTwo() {
-      this.responseData.push(this.response)
-      this.response = ''
-      this.formTwo = false
-      this.formThree = true
-    },
     submitForm() {
-      this.response ? this.responseData.push(this.response) : null
-      this.handler()
+      
+      let obj = {
+        engine: this.engine,
+        prompt: this.prompt
+      }
+      
+      this.handler(obj)
+      this.prompt = ''
     }
   }
 }
 </script>
 
 <template>
-  <div v-if="formOne" class='form-body'>
-    <p class="pb-3 tablet:pb-5"> Enter Genre </p>
-    <FormKit 
-      type="text" 
-      inner-class="form-inner"
-      input-class="form-input" 
-      v-model="response" 
-      validation="required" 
+  <div class="form-body">
+    <p class="display-text pb-5"> Select AI Engine </p>
+    <FormKit
+      v-model = "engine"
+      type = "radio"
+      :options="[{label: 'Davinci', value: 'text-davinci-002'}, {label: 'Curie', value: 'text-curie-001'}, {label: 'Ada', value: 'text-ada-001'}, {label: 'Babbage', value: 'text-babbage-001'}]"
     />
-    <div class="form-btn">
-      <button @click="handleFormOne" class="btn"> Next </button>
-    </div>
   </div>
 
-  <div v-if="formTwo" class="form-body">
-    <p class="pb-3 tablet:pb-5"> Favorite Author </p>
+  <div class='form-body'>
+    <p class="display-text pb-4 tablet:pb-5"> Ask away </p>
     <FormKit 
-      type="text" 
+      type="textarea" 
       inner-class="form-inner"
       input-class="form-input" 
-      v-model="response" 
-    />
-    <div class="form-btn">
-      <button @click="handleFormTwo" class="btn"> Next </button>
-    </div>
-  </div>
-
-  <div v-if="formThree" class="form-body">
-    <p class="pb-3 tablet:pb-5"> Favorite Book </p>
-    <FormKit 
-      type="text" 
-      inner-class="form-inner"
-      input-class="form-input" 
-      v-model="response" 
+      v-model="prompt" 
+      rows = "10"
+      placeholder="Enter Prompt"
     />
     <div class="form-btn">
       <button @click="submitForm" class="btn"> Submit </button>
     </div>
   </div>
 </template>
+
+<style>
+  .formkit-options {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
+</style>
