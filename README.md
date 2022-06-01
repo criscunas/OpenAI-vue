@@ -1,24 +1,10 @@
-# Simple ask & response with OpenAI, Vue & Tailwind
+# Simple ask & response with OpenAI, Vue, FormKit & Tailwind
 
-## Project setup
-```
-npm install
-```
+### A small application that allows users to select an AI engine and ask any question. User is then returned the prompt entered & response sent back. They can then delete all or individual responses. Based off of Shopify's Frontend Challenge https://github.com/criscunas/FunWithGPT-3. Very minimal styling. Rebuilt to mainly get familiar with Vue.js and Tailwind CSS.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Install & run.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. git clone this repo
+2. npm install 
+3. create a env file and provide your OpenAI key under VUE_APP_api_key = "your_key_here"
+4. npm run serve  
