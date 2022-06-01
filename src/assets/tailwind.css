@@ -11,7 +11,7 @@
     @apply px-3 py-1.5 bg-[#4896e8] rounded-lg text-white hover:bg-[#1e6c9c];
   }
   .form-body {
-    @apply m-4 py-3 px-2.5 max-w-md tablet:m-auto;
+    @apply max-w-lg m-auto py-3 px-2.5;
   }
   .form-input {
     @apply w-full h-32 px-2 py-1.5 border-none text-base text-gray-700 rounded-lg placeholder-gray-400 resize-none;
@@ -26,7 +26,7 @@
     @apply text-xl text-white font-sans font-semibold tablet:text-2xl;
   }
   .card {
-    @apply bg-white max-w-md mt-6 mb-6 p-3 tablet:m-auto rounded-lg;
+    @apply bg-white p-3 rounded-lg max-w-md mb-6 tablet:mb-4;
   }
   .card-head {
     @apply text-lg font-sans font-semibold leading-8;
