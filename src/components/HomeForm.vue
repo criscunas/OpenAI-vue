@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     submitForm() {
-      
+
       let obj = {
         engine: this.engine,
         prompt: this.prompt
@@ -20,14 +20,14 @@ export default {
       
       this.handler(obj)
       this.prompt = ''
-    }
+    },
   }
 }
 </script>
 
 <template>
-  <div class="form-body">
-    <p class="display-text pb-5"> Select AI Engine </p>
+  <div class="form-body pb-6">
+    <p class="display-text pb-6"> Select AI Engine </p>
     <FormKit
       v-model = "engine"
       type = "radio"
@@ -45,9 +45,14 @@ export default {
       rows = "10"
       placeholder="Enter Prompt"
     />
-    <div class="form-btn">
+    <div v-if = "this.prompt && this.engine" class="form-btn">
       <button @click="submitForm" class="btn"> Submit </button>
     </div>
+
+    <div v-else class="form-btn">
+      <button class="btn :disabled"> Submit </button>
+    </div>
+    
   </div>
 </template>
 
