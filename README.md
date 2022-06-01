@@ -1,4 +1,4 @@
-# todo-app
+# Simple ask & response with OpenAI, Vue & Tailwind
 
 ## Project setup
 ```
